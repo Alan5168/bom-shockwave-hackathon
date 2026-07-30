@@ -1,4 +1,4 @@
-# 断料雷达 · BOM Shockwave
+# 缺料冲击推演器
 
 一颗料缺货，30 秒看清打击面，以及该给每个部门发什么指令。
 
@@ -33,4 +33,3 @@ npm audit --omit=dev --audit-level=high
 
 详细操作见 [`docs/user-manual.md`](docs/user-manual.md)；比赛提交材料草稿见
 [`docs/submission-draft.md`](docs/submission-draft.md)。
-

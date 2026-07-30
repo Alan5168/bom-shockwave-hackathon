@@ -1,14 +1,15 @@
-# PROJECT_STATE — 断料雷达 · BOM Shockwave
+# PROJECT_STATE — 缺料冲击推演器
 
 > Canonical handoff for `projects/bom-shockwave/`  
-> Last writeback: 2026-07-29（Codex Desktop）
+> Last writeback: 2026-07-30（Codex Desktop）
 
 ## Status
 
-**BUILD_READY_FOR_COO_VALIDATION**
+**COO_VALIDATED_PASS / CEO_DOMAIN_REVIEW_PENDING**
 
-v0.1 核心流程、单测、文档、桌面 / 375px 浏览器验收与最终构建已全绿。未部署、未建远端、
-未 push、未提交比赛、未发帖。
+v0.1 核心流程、单测、文档、桌面 / 375px 浏览器验收与最终构建已全绿；COO 正式 Gate
+维持 GO。CEO 07-30 选择正式产品名「缺料冲击推演器」，当前仅待 CEO 亲自做 10 分钟
+制造业措辞校准。未部署、未建远端、未 push、未提交比赛、未发帖。
 
 ## Implemented
 
@@ -65,6 +66,17 @@ found 0 vulnerabilities
 - 375px 数据台显示 182 行 BOM / 6 行库存 / 3 行到货 / 24 张工单；示例 CSV
   点击后状态明确显示“已加入 2 行”。
 
+07-30 品牌改名回归：
+
+- 用户可见品牌从「断料雷达 · BOM Shockwave」统一改为「缺料冲击推演器」；
+- 工程目录与 npm 包继续保留 `bom-shockwave`，避免无价值路径迁移；
+- 桌面 1280px：页面标题、导航品牌、H1 均为新名称，`scrollWidth = innerWidth = 1280`；
+- 375×812：导航品牌宽 184.85px，H1 右边界 357px，`scrollWidth = innerWidth = 375`；
+- 一键演示后移动工作台仍无横向溢出，KPI 保持
+  `1,730 pcs / 15 个成品 / 8月8日 / ¥26万`；
+- 桌面与移动回归均为 0 console error / 0 warn；
+- 回归工程门：20/20 tests、lint exit 0、Vite 8 build exit 0、audit 0 vulnerabilities。
+
 ## Known boundaries
 
 1. v0.1 是快速冲击推演，不是有限产能精排；甘特只表达物料导致的计划 delta。
@@ -75,10 +87,9 @@ found 0 vulnerabilities
 
 ## Next gates
 
-1. COO 8/3 按 GOAL 卡做 GO/KILL。
-2. CEO 做制造业措辞校准（四张部门指令是否像真工厂）。
-3. 若 GO：CEO 选择部署平台，并补用户手册 / 提交草稿截图。
-4. 部署、注册、提交与发帖只由 CEO 完成。
+1. CEO 按本地体验页做 10 分钟制造业措辞校准（四张部门指令是否像真工厂）。
+2. CEO 选择部署平台，并补用户手册 / 提交草稿截图。
+3. 部署、注册、提交与发帖只由 CEO 完成。
 
 ## Changed files
 

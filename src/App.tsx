@@ -251,9 +251,9 @@ function App() {
     return (
       <div className="landing-shell">
         <header className="topbar">
-          <a className="brand" href="#top" aria-label="断料雷达首页">
+          <a className="brand" href="#top" aria-label="缺料冲击推演器首页">
             <span className="brand__mark"><Zap /></span>
-            <span>断料雷达<small>BOM SHOCKWAVE</small></span>
+            <span>缺料冲击推演器<small>SHORTAGE IMPACT ENGINE</small></span>
           </a>
           <span className="local-proof"><LockKeyhole /> 零上传 · 零密钥 · 浏览器本地计算</span>
         </header>
@@ -261,7 +261,7 @@ function App() {
           <section className="hero">
             <div className="hero__copy">
               <span className="eyebrow">Factory shortage command center</span>
-              <h1>断料雷达</h1>
+              <h1>缺料冲击<span>推演器</span></h1>
               <p className="hero__headline">一颗电阻缺货，30 秒看清打击面。</p>
               <p className="hero__body">
                 导入多层 BOM、库存、到货与周计划。系统不替你“发明策略”，只把催交、挪料、
@@ -316,7 +316,7 @@ function App() {
       <header className="workspace-topbar">
         <button className="brand brand--button" type="button" onClick={() => setDataset(null)}>
           <span className="brand__mark"><Zap /></span>
-          <span>断料雷达<small>BOM SHOCKWAVE</small></span>
+          <span>缺料冲击推演器<small>SHORTAGE IMPACT ENGINE</small></span>
         </button>
         <div className="workspace-topbar__actions">
           <span className="local-proof"><LockKeyhole /> 数据只在当前页面</span>
