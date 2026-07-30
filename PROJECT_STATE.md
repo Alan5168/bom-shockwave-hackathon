@@ -5,12 +5,12 @@
 
 ## Status
 
-**COO_VALIDATED_PASS / CEO_DOMAIN_FEEDBACK_IMPLEMENTED / LOCAL_BROWSER_RECHECK_PENDING**
+**COO_VALIDATED_PASS / CEO_DOMAIN_FEEDBACK_VALIDATED**
 
 v0.1 核心流程、单测、文档、桌面 / 375px 浏览器验收与最终构建已全绿；COO 正式 Gate
 维持 GO。CEO 07-30 选择正式产品名「缺料冲击推演器」，并指出原四部门指令缺少研发、
-销售、物流闭环；三类指令已实现且通过代码门，待本地浏览器回归。未部署、未建远端、未
-push、未提交比赛、未发帖。
+销售、物流闭环；三类指令已实现并通过代码门、依赖审计及桌面 / 375px 浏览器回归。未部署、
+未建远端、未 push、未提交比赛、未发帖。
 
 ## Implemented
 
@@ -52,8 +52,7 @@ $ npm audit --audit-level=high
 found 0 vulnerabilities
 ```
 
-`npm audit` 的成功结果来自本轮部门扩展前的同日验证；本轮未修改依赖清单。扩展后的复跑
-因 Codex 审批服务额度不足，无法放行 npm registry 网络连接，未伪报新结果。
+部门扩展完成后已重新执行 `npm audit --audit-level=high`，结果为 0 vulnerabilities。
 
 浏览器验收（Codex in-app Browser，本地 Vite）：
 
@@ -89,8 +88,14 @@ found 0 vulnerabilities
 - 物流卡把供应商齐套、分批提货、在途、门岗、检验放行、入库串为完整到厂链；
 - 新增 3 个模板测试；最终代码门为 23/23 tests、lint exit 0、Vite 8 build exit 0；
 - 桌面双列下第 7 张卡横跨整行；375px 仍使用单列规则；
-- 本地 Vite 服务已停止，重新绑定 `127.0.0.1:5182` 被审批服务额度问题阻断，因此新增
-  三张卡的浏览器回归明确标为 pending。
+- 桌面 1280×720：7 张卡顺序完整，采购至销售为双列，物流卡以 `grid-column: 1 / -1`
+  横跨整行；`scrollWidth = innerWidth = 1280`；
+- 研发、销售、物流的自然语言 Prompt 均通过页面按钮复制并从剪贴板读回；分别包含验证
+  天数 / 预算 / 联合签字、客户工单 / 预计完工日 / 承诺边界、到厂 / 检验放行 / 入库节点；
+- 375×812：7 张卡均为 338px 单列，全部操作按钮位于视口内，
+  `scrollWidth = innerWidth = 375`；
+- 桌面和 375px 回归均为 0 console error / 0 warn；
+- 本地体验页运行于 `http://127.0.0.1:5182/`。
 
 ## Known boundaries
 
@@ -102,10 +107,9 @@ found 0 vulnerabilities
 
 ## Next gates
 
-1. 审批恢复后完成七张部门指令的桌面 / 375px 浏览器回归。
-2. CEO 快速复核新增研发、销售、物流三张指令是否像真工厂。
-3. CEO 选择部署平台，并补用户手册 / 提交草稿截图。
-4. 部署、注册、提交与发帖只由 CEO 完成。
+1. CEO 快速复核新增研发、销售、物流三张指令是否像真工厂。
+2. CEO 选择部署平台，并补用户手册 / 提交草稿截图。
+3. 部署、注册、提交与发帖只由 CEO 完成。
 
 ## Changed files
 
