@@ -1010,6 +1010,10 @@ button:disabled {
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.directive:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .directive__number {
   position: absolute;
   top: 20px;

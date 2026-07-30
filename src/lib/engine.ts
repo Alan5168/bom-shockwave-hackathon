@@ -238,6 +238,8 @@ export function analyzeShock(
     nextSupplyDate,
     exposures,
     supply,
+    redesignDays: params.redesignDays,
+    redesignCost: params.redesignCost,
   })
 
   return {

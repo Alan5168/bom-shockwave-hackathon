@@ -5,11 +5,12 @@
 
 ## Status
 
-**COO_VALIDATED_PASS / CEO_DOMAIN_REVIEW_PENDING**
+**COO_VALIDATED_PASS / CEO_DOMAIN_FEEDBACK_IMPLEMENTED / LOCAL_BROWSER_RECHECK_PENDING**
 
 v0.1 核心流程、单测、文档、桌面 / 375px 浏览器验收与最终构建已全绿；COO 正式 Gate
-维持 GO。CEO 07-30 选择正式产品名「缺料冲击推演器」，当前仅待 CEO 亲自做 10 分钟
-制造业措辞校准。未部署、未建远端、未 push、未提交比赛、未发帖。
+维持 GO。CEO 07-30 选择正式产品名「缺料冲击推演器」，并指出原四部门指令缺少研发、
+销售、物流闭环；三类指令已实现且通过代码门，待本地浏览器回归。未部署、未建远端、未
+push、未提交比赛、未发帖。
 
 ## Implemented
 
@@ -21,7 +22,7 @@ v0.1 核心流程、单测、文档、桌面 / 375px 浏览器验收与最终构
 - 到货日期编辑后净缺口、延期、图、甘特 delta、Playbook、指令全量即时重算；
 - 催交 / 挪料 / 客户改承诺 / 替代料 / 提良率五类参数化选项；
 - 替代料验证天数、成本、现场良率空间显式人工输入；
-- 采购 / 产线 / 仓库 / 计划四类模板指令，prompt + JSON 双格式；
+- 采购 / 产线 / 仓库 / 计划 / 研发 / 销售 / 物流七类模板指令，prompt + JSON 双格式；
 - CSV 文件或粘贴导入，模糊列名、宽容单位 / 日期解析、坏行警告；
 - 完整事件 JSON 导出；
 - 用户手册与比赛提交草稿。
@@ -34,7 +35,7 @@ v0.1 核心流程、单测、文档、桌面 / 375px 浏览器验收与最终构
 $ npm test
 RUN  v4.1.10
 Test Files  3 passed (3)
-Tests       20 passed (20)
+Tests       23 passed (23)
 
 $ npm run lint
 eslint . → exit 0
@@ -42,14 +43,17 @@ eslint . → exit 0
 $ npm run build
 vite v8.1.5
 ✓ 1727 modules transformed.
-dist/index.html                   0.62 kB │ gzip:   0.46 kB
-dist/assets/index-WhOyipV8.css   39.74 kB │ gzip:   8.52 kB
-dist/assets/index-n7yWIGxa.js   408.04 kB │ gzip: 131.32 kB
-✓ built in 183ms
+dist/index.html                   0.61 kB │ gzip:   0.43 kB
+dist/assets/index-DRXqFdo0.css   39.94 kB │ gzip:   8.57 kB
+dist/assets/index-R7DUFa65.js   411.92 kB │ gzip: 132.84 kB
+✓ built in 128ms
 
 $ npm audit --audit-level=high
 found 0 vulnerabilities
 ```
+
+`npm audit` 的成功结果来自本轮部门扩展前的同日验证；本轮未修改依赖清单。扩展后的复跑
+因 Codex 审批服务额度不足，无法放行 npm registry 网络连接，未伪报新结果。
 
 浏览器验收（Codex in-app Browser，本地 Vite）：
 
@@ -77,6 +81,17 @@ found 0 vulnerabilities
 - 桌面与移动回归均为 0 console error / 0 warn；
 - 回归工程门：20/20 tests、lint exit 0、Vite 8 build exit 0、audit 0 vulnerabilities。
 
+07-30 CEO 部门闭环校准：
+
+- 部门指令由 4 张扩展为 7 张，新增研发 / 销售 / 物流，继续保持 prompt + JSON 双格式；
+- 研发卡消费人工输入的验证天数与预算，强制研发 / 质量共同签字，禁止未批准改 BOM；
+- 销售卡携带客户、工单、预计完工日、延期天数和估算罚款，禁止承诺早于计划结果；
+- 物流卡把供应商齐套、分批提货、在途、门岗、检验放行、入库串为完整到厂链；
+- 新增 3 个模板测试；最终代码门为 23/23 tests、lint exit 0、Vite 8 build exit 0；
+- 桌面双列下第 7 张卡横跨整行；375px 仍使用单列规则；
+- 本地 Vite 服务已停止，重新绑定 `127.0.0.1:5182` 被审批服务额度问题阻断，因此新增
+  三张卡的浏览器回归明确标为 pending。
+
 ## Known boundaries
 
 1. v0.1 是快速冲击推演，不是有限产能精排；甘特只表达物料导致的计划 delta。
@@ -87,9 +102,10 @@ found 0 vulnerabilities
 
 ## Next gates
 
-1. CEO 按本地体验页做 10 分钟制造业措辞校准（四张部门指令是否像真工厂）。
-2. CEO 选择部署平台，并补用户手册 / 提交草稿截图。
-3. 部署、注册、提交与发帖只由 CEO 完成。
+1. 审批恢复后完成七张部门指令的桌面 / 375px 浏览器回归。
+2. CEO 快速复核新增研发、销售、物流三张指令是否像真工厂。
+3. CEO 选择部署平台，并补用户手册 / 提交草稿截图。
+4. 部署、注册、提交与发帖只由 CEO 完成。
 
 ## Changed files
 

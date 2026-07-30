@@ -97,7 +97,14 @@ export interface PlaybookOption {
 }
 
 export interface DepartmentDirective {
-  id: 'procurement' | 'production' | 'warehouse' | 'planning'
+  id:
+    | 'procurement'
+    | 'production'
+    | 'warehouse'
+    | 'planning'
+    | 'engineering'
+    | 'sales'
+    | 'logistics'
   department: string
   title: string
   summary: string

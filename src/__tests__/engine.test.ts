@@ -56,6 +56,9 @@ describe('shock propagation', () => {
       'production',
       'warehouse',
       'planning',
+      'engineering',
+      'sales',
+      'logistics',
     ])
   })
 
@@ -86,4 +89,3 @@ describe('shock propagation', () => {
     expect(redesign?.metric).toContain('90,000')
   })
 })
-
