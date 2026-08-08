@@ -81,12 +81,13 @@ v0.1 是快速冲击推演器，不是精细有限产能排程器；不做需求
 ERP/MES 回写。导入结果仍需计划员、采购和现场负责人确认。行动回写后自动重算属于 9 月
 旗舰开源版本 roadmap。
 
-### 赛道与链接占位
+### 赛道与链接
 
 - 目标赛道：Qoder / AI Coding（CEO 按官方最新规则确认）
-- 公开作品链接：`[CEO 部署后填写]`
-- 开源仓链接：`[9 月旗舰开源时填写；比赛前不建远端]`
-- 演示视频：`[如官方表单需要，由 CEO 决定]`
+- 公开作品链接：https://alan5168.github.io/bom-shockwave-hackathon/
+- 源代码：https://github.com/Alan5168/bom-shockwave-hackathon
+- 用户手册：https://github.com/Alan5168/bom-shockwave-hackathon/blob/main/docs/user-manual.md
+- 演示视频：[如官方表单需要，由 CEO 决定]
 
 ## 小红书笔记草稿
 
